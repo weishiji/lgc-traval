@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>法国波尔多葡萄酒旅游门户网站</title>
+		<meta charset="utf-8" />
+		<link type="text/css" rel="stylesheet" href="../css/bootstrap.css" />
+		<link type="text/css" rel="stylesheet" href="../css/datepiker.css" />
+		<link type="text/css" rel="stylesheet" href="../css/style.css" />
+		<link type="text/css" rel="stylesheet" href="../my.css" />
+		<style>
+						.relaxation li p{background:rgba(0,0,0,0.5);line-height:24px;color:#fff !important;}
+		</style>
+		<script type="text/javascript" src="../jquery.js"></script>
+		<script type="text/javascript" src="../js/bootstrap.js"></script>
+		<!--script type="text/javascript" src="../js/jquery.kwicks-1.5.1.js"></script-->
+		<script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
+		<script type="text/javascript" src="../js/bootstrap-datepicker.js"></script>
+		
+		<script type="text/javascript" src="../layout.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				var li=$(".relaxation1 li");
+				window.setInterval(function(){
+					li.each(function(){
+						if($(this).width() > 100){
+							$(this).find("img").css({"margin-left":"0px"})
+							return;
+						}
+						var img=$(this).find("img")
+						img.stop(true,true).css({"margin-left":img.attr("data-center")})
+					})
+				},50)
+
+			})
+		</script>
+	</head>
+<body data-spy="scroll" data-target=".bs-docs-sidebar" data-twttr-rendered="true" screen_capture_injected="true">	
+	<div class="container-fluid" style="min-width:980px;max-width:1440px;margin:0 auto;">
+		<div class="row-fluid main">
+			<div class="container" style="width:980px;">
+				<ul class="custom-nav">
+					<li><a href="../index.html">网站首页<span></span></a>
+
+					</li>
+					<li><a class="active" href="travel.html">红酒之旅<span></span></a>
+						<ol class="Mu">
+							<li class="first"><a href="../SWF/travelSWF/meiduoke/flashcontainer.html">梅多克</a></li>
+							<li><a href="../SWF/travelSWF/shengaimilong/flashcontainer.html">圣艾米隆</a></li>
+							<li><a href="../SWF/travelSWF/gelafu/flashcontainer.html">格拉芙</a></li>
+							<li><a href="../SWF/travelSWF/sudai/flashcontainer.html">苏玳</a></li>
+							<li><a href="../SWF/travelSWF/bokendi/flashcontainer.html">勃艮第产区</a></li>
+							<li><a href="../SWF/travelSWF/luwaer/flashcontainer.html">卢瓦尔产区</a></li>
+							<li><a href="../SWF/travelSWF/xiangbin/flashcontainer.html">香槟产区</a></li>
+						</ol>
+					</li>
+					<li><a href="hotel.html">娱乐休闲<span></span></a>
+						<ol class="Mu">
+							<li style="margin-left:26%;"><a href="../SWF/hotelSWF/pinjiukecheng/flashcontainer.html">品酒课程</a></li>
+							<li><a href="../SWF/hotelSWF/hongjiuspa/flashcontainer.html">红酒spa</a></li>
+							<li><a href="../SWF/hotelSWF/chuhaiyou/flashcontainer.html">出海游</a></li>
+							<li><a href="../SWF/hotelSWF/jiuzhuangyongcan/flashcontainer.html">酒庄用餐</a></li>
+							<li><a href="../SWF/hotelSWF/kouweiceshi/flashcontainer.html">口味测试</a></li>
+							<li><a href="../SWF/hotelSWF/jiuzhuangzhusu/flashcontainer.html">酒庄住宿</a></li>
+						</ol>
+					</li>
+					<li class="logo"><img src="../image/logo.jpg"></li>
+					<li><a href="custom.html">定制行程<span></span></a></li>
+					<li><a href="guest.html">品酒客<span></span></a></li>
+					<li><a href="contact.html">联系我们<span></span></a></li>
+
+				</ul>
+			</div>
+			<div  style="background:url(../image/bg/travel.jpg) no-repeat;">
+				<div class="travelBG">
+					<ul class="relaxation relaxation1 travel-list nav" style="margin-left: -288px;">
+						<li>
+							<a href="../SWF/travelSWF/boerduo/flashcontainer.html"><img style="margin-left:-332px;" data-center="-332px" src="../image/红酒之旅/波尔多2.jpg"></a>
+							<p>波尔多</p>
+						</li>
+						<li>
+							<a href="../SWF/travelSWF/bokendi/flashcontainer.html"><img style="margin-left:-515px" data-center="-515px" src="../image/红酒之旅/勃垦第2.jpg"></a>
+							<p>勃垦第</p>
+						</li>
+						<li>
+							<a href="../SWF/travelSWF/sudai/flashcontainer.html"><img style="margin-left:-560px" data-center="-560px" src="../image/红酒之旅/苏玳2.jpg"></a>
+							<p>苏玳</p>
+						</li>
+						<li>
+							<a href="../SWF/travelSWF/luwaer/flashcontainer.html"><img style="margin-left:-623px" data-center="-623px" src="../image/红酒之旅/卢瓦尔2.jpg"></a>
+							<p>卢瓦尔</p>
+						</li>
+						<li>
+							<a href="../SWF/travelSWF/gelafu/flashcontainer.html"><img style="margin-left:-377px" data-center="-377px" src="../image/红酒之旅/格拉芙2.jpg"></a>
+							<p>格拉芙</p>
+						</li>
+						<li>
+							<a href="../SWF/travelSWF/xiangbin/flashcontainer.html"><img style="margin-left:-484px" data-center="-484px" src="../image/红酒之旅/香槟2.jpg"></a>
+							<p>香槟</p>
+						</li>
+						<li>
+							<a href="../SWF/travelSWF/shengaimilong/flashcontainer.html"><img style="-348px" data-center="-348px" src="../image/红酒之旅/圣艾米隆2.jpg"></a>
+							<p>圣艾米隆</p>
+						</li>
+						<li>
+							<a href="../SWF/travelSWF/meiduoke/flashcontainer.html"><img style="margin-left:-507px" data-center="-507px" src="../image/红酒之旅/梅多克2.jpg"></a>
+							<p>梅多克</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

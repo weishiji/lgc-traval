@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>法国波尔多葡萄酒旅游门户网站</title>
+		<meta charset="utf-8" />
+		<link type="text/css" rel="stylesheet" href="../css/bootstrap.css" />
+		<link type="text/css" rel="stylesheet" href="../css/datepiker.css" />
+		<link type="text/css" rel="stylesheet" href="../css/style.css" />
+		<link type="text/css" rel="stylesheet" href="../my.css" />
+		<script type="text/javascript" src="../jquery.js"></script>
+		<script type="text/javascript" src="../js/bootstrap.js"></script>
+		<!--script type="text/javascript" src="../js/jquery.kwicks-1.5.1.js"></script-->
+		<script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
+		<script type="text/javascript" src="../js/bootstrap-datepicker.js"></script>
+		
+		<script type="text/javascript" src="../layout.js"></script>
+        <script>
+            $(function(){
+
+                $('form').submit(function(){
+                    var json = {}
+                    json.name = $('input[placeholder=name]').val()
+                    json.Email = $('input[placeholder=Email]').val()
+                    json.telephone = $('input[placeholder=telephone]').val()
+                    json.address = $('input[placeholder=address]').val()
+                    json.sex_m = $('select[name=sex_m]').val()
+                    json.sex_w = $('select[name=sex_w]').val()
+                    json.start_time = $('input[placeholder=start_time]').val()
+                    json.end_time = $('input[placeholder=end_time]').val()
+                    json.start_city = $('input[placeholder=start_city]').val()
+                    json.end_city = $('input[placeholder=end_city]').val()
+                    json.jyaoqiu = $('select[name=jyaoqiu]').is(":disabled") ? "" : $('select[name=jyaoqiu]').val()
+                    json.jibie = $('select[name=jibie]').is(":disabled") ? "" : $('select[name=jibie]').val()
+                    json.fyaoqiu = $('select[name=fyaoqiu]').is(":disabled") ? "" : $('select[name=fyaoqiu]').val()
+                    json.diqu = $('#wish').val()
+                    json.jingdian = $('#must').val()
+                    json.other = $('textarea').val()
+                    $.ajax({
+                        url:$('form').attr('action'),
+                        type:'post',
+                        data:json,
+                     	beforeSend:function(){
+							if($("input[type='submit']").data("sendState") === "0"){
+								return false;
+							}
+                     		if(json.name === "" || json.Email === "" || json.telephone === ""){
+                     			$("#myModal").modal('show')
+                     			return false;
+                     		}
+                     		if($("input[name='needhotel']:checked").length === 0){
+                     			$("#myModal4").modal("show");
+                     			return false;
+                     		}
+							$("input[type='submit']").data({"sendState":"0"})
+							$("input[type='submit']").addClass("disabled").val("提交中...");
+                     	},
+						error:function(){
+							$("input[type='submit']").data({"sendState":"1"})
+						},
+                        success:function(data)
+                        {
+							if(data === "0"){
+								$("#myModal2").modal("show");
+							}else{
+								$("#myModal3").modal("show");
+							}
+							$("input[type='submit']").data({"sendState":"1"})
+							$("input[type='submit']").removeClass("disabled").val("提交订单");
+
+                        }
+                    })
+                    return false;
+                })
+				$("button[type='reset']").bind('click',function(){
+					$("input[type='text']").val("")
+				})
+				$("input[name='needhotel']").change(function(){
+					if($(this).val() === "0"){
+						$("select.change").removeAttr("disabled")
+					}else{
+						$("select.change").each(function(){
+							this.disabled=true;
+						})
+					}
+				})
+            })
+			
+        </script>
+	</head>
+<body data-spy="scroll" data-target=".bs-docs-sidebar" data-twttr-rendered="true" screen_capture_injected="true">	
+	<div class="container-fluid" style="min-width:980px;max-width:1440px;margin:0 auto;">
+		<div class="row-fluid main">
+			<div class="container" style="width:980px;">
+				<ul class="custom-nav">
+					<li><a href="../index.html">网站首页<span></span></a>
+
+					</li>
+					<li><a href="travel.html">红酒之旅<span></span></a>
+						<ol class="Mu">
+							<li class="first"><a href="../SWF/travelSWF/meiduoke/flashcontainer.html">梅多克</a></li>
+							<li><a href="../SWF/travelSWF/shengaimilong/flashcontainer.html">圣艾米隆</a></li>
+							<li><a href="../SWF/travelSWF/gelafu/flashcontainer.html">格拉芙</a></li>
+							<li><a href="../SWF/travelSWF/sudai/flashcontainer.html">苏玳</a></li>
+							<li><a href="../SWF/travelSWF/bokendi/flashcontainer.html">勃艮第产区</a></li>
+							<li><a href="../SWF/travelSWF/luwaer/flashcontainer.html">卢瓦尔产区</a></li>
+							<li><a href="../SWF/travelSWF/xiangbin/flashcontainer.html">香槟产区</a></li>
+						</ol>
+					</li>
+					<li><a href="hotel.html">娱乐休闲<span></span></a>
+						<ol class="Mu">
+							<li style="margin-left:26%;"><a href="../SWF/hotelSWF/pinjiukecheng/flashcontainer.html">品酒课程</a></li>
+							<li><a href="../SWF/hotelSWF/hongjiuspa/flashcontainer.html">红酒spa</a></li>
+							<li><a href="../SWF/hotelSWF/chuhaiyou/flashcontainer.html">出海游</a></li>
+							<li><a href="../SWF/hotelSWF/jiuzhuangyongcan/flashcontainer.html">酒庄用餐</a></li>
+							<li><a href="../SWF/hotelSWF/kouweiceshi/flashcontainer.html">口味测试</a></li>
+							<li><a href="../SWF/hotelSWF/jiuzhuangzhusu/flashcontainer.html">酒庄住宿</a></li>
+						</ol>
+					</li>
+					<li class="logo"><img src="../image/logo.jpg"></li>
+					<li><a class="active" href="javascript:void(0);">定制行程<span></span></a></li>
+					<li><a href="guest.html">品酒客<span></span></a></li>
+					<li><a href="contact.html">联系我们<span></span></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row-fluid" style="background:url(../image/bg/custom.jpg) no-repeat;">
+			<div class="travelBG" style="padding-top:34px;">
+				<div class="container">
+					<form class="form-horizontal" action="../send.php" method="post">
+						<div class="span5">
+							<div class="control-group">
+								<label class="control-label" for="inputEmail"><span class="text-error">*</span>联系人姓名</label>
+								<div class="controls">
+									<input type="text" id="inputEmail" placeholder="name">
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="inputtext"><span class="text-error">*</span>电话</label>
+								<div class="controls">
+									<input type="text" id="inputtext" placeholder="telephone">
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="inputtext">人数男</label>
+								<div class="controls">
+									<select name="sex_m">
+										<option value="0">0</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+										<option value="10">10</option>
+									</select>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="inputtext">行程起始日期</label>
+								<div class="controls">
+									<input id="dpd1" type="text" data-date-format="yyyy-mm-dd" placeholder="start_time">
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="inputtext">行程起始城市</label>
+								<div class="controls">
+									<input type="text" data-provide="typeahead" data-items="4" placeholder="start_city"
+									data-source="">
+
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="inputtext">是否需要定制酒店<span class="text-error">*</span></label>
+								<div class="controls">
+									<label class="radio inline">
+									  <input type="radio" name="needhotel" value="0">
+									  是
+									</label>
+									<label class="radio inline">
+									  <input type="radio" name="needhotel" value="1">
+									  否
+									</label>
+								</div>
+							</div>
+							
+							<div class="control-group">
+								<label class="control-label" for="inputtext">房间要求</label>
+								<div class="controls">
+									<select class="change" name="fyaoqiu" disabled>
+										<option value="单人间">单人间</option>
+										<option value="大床双人间">大床双人间</option>
+										<option value="分床双人间">分床双人间</option>
+										<option value="3人间">3人间</option>
+										<option value="家庭4人间">家庭4人间</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="span5">
+							<div class="control-group">
+								<label class="control-label" for="inputEmail"><span class="text-error">*</span>电子邮件</label>
+								<div class="controls">
+									<input type="text" id="inputEmail" placeholder="Email">
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="inputtext">地址</label>
+								<div class="controls">
+									<input type="text" id="inputtext" placeholder="address">
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="inputtext">人数女</label>
+								<div class="controls">
+									<select name="sex_w">
+										<option value="0">0</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+										<option value="10">10</option>
+									</select>								
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="inputtext">结束时间</label>
+								<div class="controls">
+									<input id="dpd2" type="text" data-date-format="yyyy-mm-dd" placeholder="end_time">
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="inputtext">结束城市</label>
+								<div class="controls">
+									<input type="text" data-provide="typeahead" data-items="4" placeholder="end_city"
+									data-source="[]">
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="inputtext">酒店级别</label>
+								<div class="controls">
+									<select class="change" name="jibie" disabled>
+										<option value="5星级+">5星级+</option>
+										<option value="5星级">5星级</option>
+										<option value="4星级">4星级</option>
+										<option value="3星级">3星级</option>
+										<option value="经济连锁酒店">经济连锁酒店</option>
+									</select>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="inputtext">酒店要求</label>
+								<div class="controls">
+									<select class='change' name="jyaoqiu" disabled>
+										<option value="以房间条件为主">以房间条件为主</option>
+										<option value="以地理位置为主">以地理位置为主</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="row-fluid">
+							<div class="span12">
+								<div class="control-group">
+									<label class="control-label" for="wish">希望前往的地区</label>
+									<div class="controls">
+										<input id="wish" type="text" class="span9" placeholder="wishing to travel">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="must">必去景点</label>
+									<div class="controls">
+										<input id="must" type="text" class="span9" placeholder="must go attractions">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="special">备注/特殊要求</label>
+									<div class="controls">
+										<textarea id="special" rows="2" class="span9" placeholder="remarks/special requirements"></textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class='row-fluid'>
+							<p class='text-center'><span class="text-error">提示:</span>标<span class="text-error">*</span>为必填项目,请您认真填写，谢谢合作</p>
+						</div>
+						<div class="row-fluid">
+							<div class="span2 offset4">
+								<button type="reset" class="btn pull-left">重填订单</button>
+							</div>
+							<div class="span2">
+								<input type="submit" class="btn  pull-left btn-success" value="提交订单" />
+							</div>
+						</div>
+	          		</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="myModal" class="modal hide fade">
+	  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	  <div class="modal-body">
+	    <p>带<span class="text-error">*</span>为必填项目，请完善，方便我们与您即时联系，以免耽误您的行程</p>
+	  </div>
+	  <div class="modal-footer">
+	    <a href="#" class="btn btn-primary" onclick="$('#myModal').modal('hide')">返回继续</a>
+	  </div>
+	</div>
+
+
+	<div id="myModal2" class="modal hide fade">
+	  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	  <div class="modal-body">
+	    <p>15分钟内请勿重复提交订,请耐心等待，我们的工作人员会根据您填写的联系方式与您沟通,谢谢合作</p>
+	  </div>
+	  <div class="modal-footer">
+	    <a href="#" class="btn btn-primary" onclick="$('#myModal2').modal('hide')">确定</a>
+	  </div>
+	</div>
+
+	<div id="myModal3" class="modal hide fade">
+	  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	  <div class="modal-body">
+	    <p>订单提交成功,我们的工作人员会根据您填写的联系方式与您沟通,谢谢合作</p>
+	  </div>
+	  <div class="modal-footer">
+	    <a href="#" class="btn btn-primary" onclick="$('#myModal3').modal('hide')">确定</a>
+	  </div>
+	</div>
+
+	<div id="myModal4" class="modal hide fade">
+	  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	  <div class="modal-body">
+	    <p>请选择是否需要预订酒店</p>
+	  </div>
+	  <div class="modal-footer">
+	    <a href="#" class="btn btn-primary" onclick="$('#myModal4').modal('hide')">确定</a>
+	  </div>
+	</div>
+</body>
+</html>
