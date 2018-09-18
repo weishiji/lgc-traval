@@ -77,15 +77,13 @@ router.post('/order', function (req, res) {
 
     // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
     // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+    res.json({
+      code: 0,
+      message: 'success',
+    });
   });
 
-
-  var sendData = {
-    code: 0,
-    message: 'success',
-  }
-  res.json(sendData);
-})
+});
 
 app.use('/api', router);
 
