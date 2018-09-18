@@ -16,7 +16,7 @@ const account = {
 
 // viewed at http://localhost:8080
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname + '/index.html'));
+  res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
 router.post('/order', function (req, res) {
