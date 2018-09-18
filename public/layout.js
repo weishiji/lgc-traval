@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	//禁止鼠标右键
 	$(document).bind("contextmenu", function(e) {
-	    return false;
+	    // return false;
 	});
 	
 	/*function key() {
