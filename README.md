@@ -1,11 +1,14 @@
 # lgc-traval
 ubuntu 安装nodejs
+-----------------------
+
 ``` cammand
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 nginx 配置
 ---------------------
+
 ```config
 upstream rockjins {
     server 127.0.0.1:8080; 
